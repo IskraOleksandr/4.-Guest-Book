@@ -1,0 +1,47 @@
+﻿@model Гостевая_книга_Guest_Book.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<div>
+    <div class="dv1">
+        <div class="div_h1">
+            <h1 class="h1_n">Вход </h1>
+        </div>
+        <div>
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br>
+                <div class="div_com_t">
+                    <span class="span_error" asp-validation-for="Login"></span>
+                    <div class="div_com_t1">
+                        <label asp-for="Login" class="label"></label>
+                        <input asp-for="Login" class="input1" />
+                    </div>
+                </div>
+
+                <div class="div_com_t">
+                    <span class="span_error" asp-validation-for="Password"></span>
+                    <div class="div_com_t1">
+                        <label asp-for="Password" class="label"></label>
+                        <input asp-for="Password" class="input1" />
+                    </div>
+                </div>
+
+                <div class=" div_subm" style="margin-top: 90px;">
+                    <input class="input_subm" type="submit" value="Войти" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

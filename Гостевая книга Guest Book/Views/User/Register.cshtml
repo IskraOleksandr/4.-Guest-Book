@@ -1,0 +1,55 @@
+﻿@model Гостевая_книга_Guest_Book.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<div>
+    <div class="dv1">
+        <div class="div_h1">
+            <h1 class="h1_n">Register </h1>
+        </div>
+        <div>
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br>
+                <div class="div_com_t">
+                    <span asp-validation-for="Login" class="span_error"></span>
+                    <div class="div_com_t1">
+                        <label asp-for="Login" class="label"></label>
+                        <input asp-for="Login" class="input1" type="text" />
+                    </div>
+                </div>
+
+                <div class="div_com_t">
+                    <span asp-validation-for="Password" class="span_error"></span>
+                    <div class="div_com_t1">
+                        <label asp-for="Password" class="label"></label>
+                        <input asp-for="Password" class="input1" type="text" />
+                    </div>
+                </div>
+
+                <div class="div_com_t">
+                    <span asp-validation-for="PasswordConfirm" class="span_error"></span>
+                    <div class="div_com_t1">
+                        <label asp-for="PasswordConfirm" class="label"></label>
+                        <input asp-for="PasswordConfirm" class="input1" type="text" />
+                    </div>
+                </div>
+
+                <div class=" div_subm" style="margin-top: 120px;">
+                    <input class="input_subm" type="submit" value="Check in" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
