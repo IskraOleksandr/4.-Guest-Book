@@ -27,13 +27,13 @@ namespace Гостевая_книга_Guest_Book.Controllers
             {
                 if (_context.Users.ToList().Count == 0)
                 {
-                    ModelState.AddModelError("", "Wrong login or password!");
+                    ModelState.AddModelError("", "Не коректный логин или пароль!");
                     return View(logon);
                 }
                 var users = _context.Users.Where(a => a.Login == logon.Login);
                 if (users.ToList().Count == 0)
                 {
-                    ModelState.AddModelError("", "Wrong login or password!");
+                    ModelState.AddModelError("", "Не коректный логин или пароль!");
                     return View(logon);
                 }
                 var user = users.First();
@@ -51,7 +51,7 @@ namespace Гостевая_книга_Guest_Book.Controllers
 
                 if (user.Password != hash.ToString())
                 {
-                    ModelState.AddModelError("", "Wrong login or password!");
+                    ModelState.AddModelError("", "Не коректный логин или пароль!");
                     return View(logon);
                 }
                 HttpContext.Session.SetString("Login", user.Login);
